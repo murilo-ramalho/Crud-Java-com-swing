@@ -25,10 +25,6 @@ import javax.swing.*;
 * */
 public class Main {
     public static void main(String[] args) {
-
-
-    }
-    public void criaView(){
         JFrame view = new JFrame("ListarContatos");
         view.setContentPane(new View().getPanel());
         view.setSize(500,500);

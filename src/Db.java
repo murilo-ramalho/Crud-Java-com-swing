@@ -9,7 +9,9 @@ public class Db implements Connect{
     private int mensagem;
     @Override
     public int conectar() {
-        return this.mensagem;
+        Connection conn = connect();
+        if (mensagem == 200) System.out.println("conexão com o banco de dados estabilecida");
+        return mensagem;
     }
     private Connection connect(){
         Connection conn = null;
@@ -24,6 +26,6 @@ public class Db implements Connect{
         return conn;
     }
     public int getMensagem(){
-        return this.mensagem;
+        return mensagem;
     }
 }
