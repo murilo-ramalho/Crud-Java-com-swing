@@ -25,12 +25,8 @@ import javax.swing.*;
 * */
 public class Main {
     public static void main(String[] args) {
-
-
-    }
-    public void criaView(){
-        JFrame view = new JFrame("ListarContatos");
-        view.setContentPane(new View().getPanel());
+        JFrame view = new JFrame("cadastrar");
+        view.setContentPane(new ViewCadastrar().getPanel());
         view.setSize(500,500);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
