@@ -13,27 +13,29 @@ public class ViewCadastrar {
     private JTextField txtSexo;
     private JLabel lblTelefone;
     private JTextField txtTelefone;
+    private JLabel lblRes;
 
     public ViewCadastrar() {
         btnCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nome, email, sexo1, telefone;
-                char sexo;
+                String nome, email, sexo, telefone;
 
                 nome = txtNome.getText();
                 telefone = txtTelefone.getText();
                 email = txtEmail.getText();
-                sexo1 = txtSexo.getText();
-
-                double telefone1 = Double.parseDouble(telefone);
-                sexo = sexo1.charAt(0);
+                sexo = txtSexo.getText();
 
                 Contato contato = new Contato();
                 contato.setNome(nome);
-                contato.setTelefone(telefone1);
+                contato.setTelefone(telefone);
                 contato.setEmail(email);
-                contato.setSexo(sexo);
+                contato.setSexo(sexo.charAt(0));
+                if (contato.cadastrar() == 200){
+                    lblRes.setText("Cadastrado com sucesso!");
+                } else {
+                    lblRes.setText("O Contato não pode ser cadastrado!");
+                }
             }
         });
     }
@@ -96,6 +98,22 @@ public class ViewCadastrar {
 
     public JTextField getTxtSexo() {
         return txtSexo;
+    }
+
+    public JLabel getLblTelefone() {
+        return lblTelefone;
+    }
+
+    public void setLblTelefone(JLabel lblTelefone) {
+        this.lblTelefone = lblTelefone;
+    }
+
+    public JTextField getTxtTelefone() {
+        return txtTelefone;
+    }
+
+    public void setTxtTelefone(JTextField txtTelefone) {
+        this.txtTelefone = txtTelefone;
     }
 
     public void setTxtSexo(JTextField txtSexo) {

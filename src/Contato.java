@@ -5,19 +5,20 @@ import java.sql.PreparedStatement;
 public class Contato implements Metodo{
     private int id;
     private String nome;
-    private double telefone;
+    private String telefone;
     private String email;
     private char sexo;
 
-    Connection conn;
-    PreparedStatement pstm;
+    private Connection conn;
+    private PreparedStatement pstm;
+    private int res;
 
-    public char getSexo() {
-        return sexo;
+    public int getRes() {
+        return res;
     }
 
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
+    public void setRes(int res) {
+        this.res = res;
     }
 
     public int getId() {
@@ -35,11 +36,12 @@ public class Contato implements Metodo{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public double getTelefone() {
+
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(double telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -51,42 +53,54 @@ public class Contato implements Metodo{
         this.email = email;
     }
 
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
     @Override
-    public void cadastrar() {
+    public int cadastrar() {
         String qwery = "INSERT INTO contatos(nome,telefone,email,sexo) VALUES(?,?,?,?)";
         conn = new Db().conectar();
 
         try {
             pstm = conn.prepareStatement(qwery);
             pstm.setString(1,getNome());
-            pstm.setDouble(2,getTelefone());
+            pstm.setString(2,getTelefone());
             pstm.setString(3,getEmail());
             pstm.setString(4,String.valueOf(getSexo()));
 
             pstm.execute();
             pstm.close();
+            setRes(200);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"fudeo "+e);
+            JOptionPane.showMessageDialog(null,"erro na hora de cadastrar:"+e);
+            setRes(400);
         }
+
+        return res;
     }
 
     @Override
-    public void consultar() {
-
+    public int consultar() {
+        return res;
     }
 
     @Override
-    public void consultarTodos() {
-
+    public int consultarTodos() {
+        return res;
     }
 
     @Override
-    public void alterar() {
-
+    public int alterar() {
+        return res;
     }
 
     @Override
-    public void excluir() {
-
+    public int excluir() {
+        return res;
     }
 }

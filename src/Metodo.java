@@ -1,7 +1,7 @@
 public interface Metodo {
-    public abstract void cadastrar();
-    public abstract void consultar();
-    public abstract void consultarTodos();
-    public abstract void alterar();
-    public abstract void excluir();
+    public abstract int cadastrar();
+    public abstract int consultar();
+    public abstract int consultarTodos();
+    public abstract int alterar();
+    public abstract int excluir();
 }

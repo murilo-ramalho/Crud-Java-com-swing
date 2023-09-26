@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Db implements Connect{
-    private final String url = "jdbc:mysql://localhost/contatos";
+    private final String url = "jdbc:mysql://localhost:3306/contatos";
     private final String user = "root";
     private final String pass = "";
 
@@ -13,7 +13,7 @@ public class Db implements Connect{
         try {
             conn = DriverManager.getConnection(url,user,pass);
         }catch (SQLException e){
-            System.out.println("erro:"+e.getMessage());
+            System.out.println("erro na conexão:"+e.getMessage());
         }
 
         return conn;

@@ -19,16 +19,15 @@ import javax.swing.*;
 *   Se o contato for do sexo “M”, o fundo da tela de exibir e alterar contato deverá ser Verde.
 *   Se o contato for do sexo “F”, o fundo da tela de exibir e alterar contato deverá ser Amarela.
 *   Se o contato não tiver telefone cadastrado, deverá ser exibido nas telas de exibir e alterar contato a mensagem “O telefone não foi informado”.
-*   Se o contato não tiver email cadastrado, deverá ser exibido nas telas de exibir e alterar contato a mensagem “O emailnão foi informado”.
+*   Se o contato não tiver email cadastrado, deverá ser exibido nas telas de exibir e alterar contato a mensagem “O email não foi informado”.
 *   O único campo de preenchimento obrigatório é o nome.
 *
 * */
 public class Main {
     public static void main(String[] args) {
-        JFrame view = new JFrame("cadastrar");
-        view.setContentPane(new ViewCadastrar().getPanel());
+        JFrame view = new JFrame("Listar Contatos");
+        view.setContentPane(new ViewAll().getPanel());
         view.setSize(500,500);
         view.setVisible(true);
-        view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
