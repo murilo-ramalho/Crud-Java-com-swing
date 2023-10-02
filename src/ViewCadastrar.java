@@ -14,6 +14,7 @@ public class ViewCadastrar {
     private JLabel lblTelefone;
     private JTextField txtTelefone;
     private JLabel lblRes;
+    private JButton btnMenu;
 
     public ViewCadastrar() {
         btnCadastrar.addActionListener(new ActionListener() {
@@ -36,6 +37,15 @@ public class ViewCadastrar {
                 } else {
                     lblRes.setText("O Contato não pode ser cadastrado!");
                 }
+            }
+        });
+        btnMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame view = new JFrame("Listar Contatos");
+                view.setContentPane(new ViewAll().getPanel());
+                view.setSize(500,500);
+                view.setVisible(true);
             }
         });
     }
